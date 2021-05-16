@@ -9,7 +9,7 @@ interface Props {
 const Header: React.FC<Props> = ({ loading = false }) => (
   <header className={styles.container}>
     <span className={styles.logo}>Medici</span>
-    {loading && <Loader />}
+    {loading && <Loader size="large" />}
   </header>
 );
 

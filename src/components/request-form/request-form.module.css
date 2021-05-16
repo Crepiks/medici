@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  align-items: center;
 }
 
 .input {
@@ -7,5 +8,5 @@
 }
 
 .button {
-  margin-left: 20px;
+  margin: 0 20px;
 }
