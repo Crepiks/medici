@@ -9,22 +9,27 @@ const defaultRequests = [
   {
     id: 1,
     status: Status.Hidden,
+    label: "Первый загрузчик",
   },
   {
     id: 2,
     status: Status.Hidden,
+    label: "Второй загрузчик",
   },
   {
     id: 3,
     status: Status.Hidden,
+    label: "Третий загрузчик",
   },
   {
     id: 4,
     status: Status.Hidden,
+    label: "Четвертый загрузчик",
   },
   {
     id: 5,
     status: Status.Hidden,
+    label: "Пятый загрузчик",
   },
 ];
 
@@ -69,6 +74,7 @@ const App: React.FC = () => {
       <div className={styles.main}>
         {requests.map((request) => (
           <RequestForm
+            label={request.label}
             status={request.status}
             key={request.id}
             onRequest={(url: string) => handleRequestSend(request.id, url)}

@@ -1,5 +1,11 @@
+.label {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 .container {
-  padding: 20px 0;
+  padding-bottom: 30px;
   display: flex;
   align-items: center;
 }
