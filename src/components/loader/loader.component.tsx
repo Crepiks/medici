@@ -5,9 +5,10 @@ import {
   CheckOutlined,
   CloseOutlined,
 } from "@ant-design/icons";
+import { Status } from "../../models/status";
 
 interface Props {
-  status?: "loading" | "success" | "error" | "hidden";
+  status?: Status;
   size?: "small" | "medium" | "large";
 }
 
@@ -17,7 +18,10 @@ const sizes = {
   large: 30,
 };
 
-const Loader: React.FC<Props> = ({ status = "loading", size = "medium" }) => {
+const Loader: React.FC<Props> = ({
+  status = Status.Loading,
+  size = "medium",
+}) => {
   const LoaderIcon = <LoadingOutlined style={{ fontSize: sizes[size] }} spin />;
 
   const statuses = {
