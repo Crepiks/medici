@@ -35,7 +35,8 @@ const App: React.FC = () => {
     changeRequestStatusById(id, Status.Loading);
     sendRequest(url)
       .then(() => changeRequestStatusById(id, Status.Success))
-      .catch(() => changeRequestStatusById(id, Status.Error));
+      .catch(() => changeRequestStatusById(id, Status.Error))
+      .finally(() => setClearTimeout(id));
   }
 
   function changeRequestStatusById(id: number, status: Status) {
@@ -43,12 +44,16 @@ const App: React.FC = () => {
     if (!request) throw new Error("Request not found");
 
     request.status = status;
-    console.log(requests);
     setRequests([...requests]);
   }
 
   async function sendRequest(url: string) {
     return axios.get(url);
+  }
+
+  function setClearTimeout(id: number) {
+    const timeout = 2000;
+    setTimeout(() => changeRequestStatusById(id, Status.Hidden), timeout);
   }
 
   function hasPendingRequest(): boolean {
