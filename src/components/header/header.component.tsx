@@ -6,13 +6,11 @@ interface Props {
   loading?: boolean;
 }
 
-const Header: React.FC<Props> = ({ loading = false }) => {
-  return (
-    <header className={styles.container}>
-      <span className={styles.logo}>Medici</span>
-      {loading && <Loader />}
-    </header>
-  );
-};
+const Header: React.FC<Props> = ({ loading = false }) => (
+  <header className={styles.container}>
+    <span className={styles.logo}>Medici</span>
+    {loading && <Loader />}
+  </header>
+);
 
 export default Header;
