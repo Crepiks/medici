@@ -7,8 +7,8 @@ import { Status } from "../../models/status";
 
 interface Props {
   label?: string;
-  status: Status;
-  onRequest: (url: string) => Promise<void>;
+  status?: Status;
+  onRequest?: (url: string) => Promise<void>;
 }
 
 const RequestForm: React.FC<Props> = ({
@@ -28,7 +28,9 @@ const RequestForm: React.FC<Props> = ({
         <div className={styles.button}>
           <Button onClick={() => onRequest(url)}>Загрузить</Button>
         </div>
-        <Loader status={status} />
+        <div className={styles.loader}>
+          <Loader status={status} />
+        </div>
       </div>
     </div>
   );
